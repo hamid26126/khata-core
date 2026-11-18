@@ -8,7 +8,7 @@ Legend: each session lists the outcome. Tests are part of every session, not a s
 
 ## Week 1: Foundations
 
-- [ ] **S1. Repo scaffold and tooling.** npm workspaces, strict TypeScript, ESLint, Prettier, Vitest, `.editorconfig`, `.gitignore`, `.env.example`, LICENSE (MIT), minimal README with project vision.
+- [x] **S1. Repo scaffold and tooling.** npm workspaces, strict TypeScript, ESLint, Prettier, Vitest, `.editorconfig`, `.gitignore`, `.env.example`, LICENSE (MIT), minimal README with project vision.
 - [ ] **S2. CI and local dev environment.** GitHub Actions (lint, typecheck, test), `docker-compose.yml` with Postgres 16, `npm run dev:db`, status badges in README.
 - [ ] **S3. Architecture and domain model docs.** `docs/architecture.md` (components, tenancy, double-entry model), ADR 0001 (monorepo and stack), ADR 0002 (money as integer minor units), ER diagram in Mermaid.
 - [ ] **S4. Database schema v1.** Migration runner, migrations for `shops`, `users`, `accounts`, `parties`, `transactions`, `postings`, with constraints, indexes and UUIDv7 IDs. Integration test harness with Testcontainers.
