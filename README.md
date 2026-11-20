@@ -1,5 +1,8 @@
 # khata-core
 
+[![CI](https://github.com/hamid26126/khata-core/actions/workflows/ci.yml/badge.svg)](https://github.com/hamid26126/khata-core/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 An offline-first digital ledger (khata) for small shopkeepers.
 
 ## Why
@@ -16,7 +19,7 @@ khata-core aims to be a ledger that stays correct and keeps working with no inte
 
 ## Status
 
-Early development. Only the repository scaffold exists so far: workspace layout, strict TypeScript, linting, formatting and the test runner. See [ROADMAP.md](ROADMAP.md) for the plan and [PROGRESS.md](PROGRESS.md) for what has been done.
+Early development. So far there is the repository scaffold (workspaces, strict TypeScript, linting, formatting, tests), CI on GitHub Actions and a local Postgres 16 via Docker Compose. See [ROADMAP.md](ROADMAP.md) for the plan and [PROGRESS.md](PROGRESS.md) for what has been done.
 
 ## Stack
 
@@ -24,11 +27,13 @@ TypeScript (strict) on Node 22, PostgreSQL 16, Fastify, Kysely, React with Index
 
 ## Quick start
 
-Requires Node 22 or newer.
+Requires Node 22 or newer. Docker is only needed for the local database.
 
 ```bash
 npm install
 npm run check   # lint, format check, typecheck, tests
+cp .env.example .env
+npm run dev:db  # Postgres on localhost:5432 (user, password and database: khata)
 ```
 
 Useful scripts:

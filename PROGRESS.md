@@ -4,9 +4,9 @@ This file is updated at the end of every working session. It is how the next ses
 
 ## Status
 
-- Current session: **S2** (not started)
-- Sessions completed: 1 of 44
-- Last updated: 2026-11-18
+- Current session: **S3** (not started)
+- Sessions completed: 2 of 44
+- Last updated: 2026-11-20
 
 ## Session log
 
@@ -19,6 +19,13 @@ Newest entries go at the top. Format for each entry:
 - Follow-ups: anything left over for later (or "none")
 - Commits: short hashes and messages
 ```
+
+### S2: CI and local dev environment (2026-11-20)
+
+- Done: GitHub Actions workflow (`.github/workflows/ci.yml`) with a check job (lint, format check, typecheck, tests on Node from `.nvmrc`) and an audit job. `docker-compose.yml` with Postgres 16 and a healthcheck. Scripts `dev:db`, `dev:db:stop`, `dev:db:reset`. CI and licence badges and a database quick start in the README. `DATABASE_URL` enabled in `.env.example`.
+- Decisions: the audit job uses `npm audit --omit=dev --audit-level=high`, because the only open advisory (`picomatch` ReDoS) is in dev tooling and has no patched release; auditing dev dependencies would keep CI red for something that never ships. Workflow permissions are read-only and runs are cancelled when superseded. The database integration job is deferred to S4, when there are tests that need Postgres.
+- Follow-ups: the Docker daemon is unavailable in the build workspace, so `npm run dev:db` was not run end to end here; the compose file passes `docker compose config`. Hamid should run it once locally. Confirm the first CI run is green on GitHub. Revisit full-tree audit in S38.
+- Commits: `6993528` ci: add GitHub Actions workflow and local Postgres via Docker Compose; plus a docs commit with the README and tracker updates.
 
 ### S1: Repo scaffold and tooling (2026-11-18)
 
