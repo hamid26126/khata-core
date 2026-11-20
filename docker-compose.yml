@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: khata-db
+    environment:
+      POSTGRES_USER: khata
+      POSTGRES_PASSWORD: khata
+      POSTGRES_DB: khata
+    ports:
+      - '5432:5432'
+    volumes:
+      - khata-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U khata -d khata']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  khata-pgdata:
